@@ -34,9 +34,13 @@ function setRemoveLongParagraph(longButton){
     })
 }
 
+
 function getMusic(musicButton){
     Array.from(musicButton).forEach(function(musicButton){
         musicButton.addEventListener('click', function(e){
+    //document.getElementById("shortParagraph").style.display = "none";
+    //document.getElementById("shortParagraph").style.display = "block";
+    //console.log(document.getElementById("shortParagraph").style.display = "block")
         audio.play()
     });
   });  
@@ -59,17 +63,27 @@ function getMuteMusic(){
         musicOffButton.addEventListener('click', function(e){
             count++
             if (count % 2 ==0){
+                console.log(count % 2)
+                console.log("Music On");
                 musicOffButton.innerHTML = "Sound On"
                 Array.from(musicButton).forEach(function(musicButton){
                     musicButton.addEventListener('click', function(e){
+                //document.getElementById("shortParagraph").style.display = "none";
+                //document.getElementById("shortParagraph").style.display = "block";
+                //console.log(document.getElementById("shortParagraph").style.display = "block")
                     audio.play()
                 });
               }); 
                 
             } else {
+                console.log(count % 2)
+                console.log("Music Off");
                 musicOffButton.innerHTML = "Sound Off"
                 Array.from(musicButton).forEach(function(musicButton){
                     musicButton.addEventListener('click', function(e){
+                //document.getElementById("shortParagraph").style.display = "none";
+                //document.getElementById("shortParagraph").style.display = "block";
+                //console.log(document.getElementById("shortParagraph").style.display = "block")
                     audio.pause()
                 });
               }); 
@@ -78,3 +92,7 @@ function getMuteMusic(){
         });
     });
 };
+
+/* function getRandomColor(){
+    let colors =
+} */
