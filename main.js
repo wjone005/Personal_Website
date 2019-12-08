@@ -2,14 +2,17 @@ let audio = new Audio('Select.mp3');
 let musicButton = document.getElementsByClassName('nes-btn');
 let shortButton = document.getElementsByClassName('short');
 let longButton = document.getElementsByClassName('long');
+let portfolioButton = document.getElementsByClassName('portfolio');
 let musicOffButton = document.getElementsByClassName('off-btn');
 let count = 0;
 document.getElementById('longParagraph').style.display = "none";
+document.getElementById("portfolio").style.display = "none";
 
 
 getMusic(musicButton)
 setRemoveShortParagraph(shortButton);
 setRemoveLongParagraph(longButton);
+setRemovePortfolio(portfolioButton);
 getMuteMusic();
 
 window.setInterval(function(){
@@ -20,7 +23,10 @@ function setRemoveShortParagraph(shortButton){
     Array.from(shortButton).forEach(function(shortButton){
         shortButton.addEventListener('click', function(e){
             document.getElementById("shortParagraph").style.display = "none";
+            document.getElementById("portfolio").style.display = "none";
             document.getElementById("longParagraph").style.display = "block";
+            document.getElementsByClassName('nes-container')[0].style = "block";
+            document.getElementsByClassName('is-centered')[0].style.display = "block"; 
         })
     })
 }
@@ -29,7 +35,24 @@ function setRemoveLongParagraph(longButton){
     Array.from(longButton).forEach(function(longButton){
         longButton.addEventListener('click', function(e){
             document.getElementById("longParagraph").style.display = "none";
+            document.getElementById("portfolio").style.display = "none";
             document.getElementById("shortParagraph").style.display = "block";
+            document.getElementsByClassName('nes-container')[0].style = "block";
+            document.getElementsByClassName('is-centered')[0].style.display = "block";
+        })
+    })
+}
+
+function setRemovePortfolio(portfolioButton){
+    Array.from(portfolioButton).forEach(function(portfolioButton){
+        portfolioButton.addEventListener('click', function(e){
+            document.getElementById("longParagraph").style.display = "none";
+            document.getElementById("shortParagraph").style.display = "none";
+            document.getElementsByClassName('remove-article')[0].style = "none";
+            document.getElementsByClassName('nes-container')[0].style = "none";
+            document.getElementsByClassName('with-title')[0].style = "none";
+            document.getElementsByClassName('is-centered')[0].style.display = "none";
+            document.getElementById("portfolio").style.display = "block";
         })
     })
 }
@@ -38,9 +61,6 @@ function setRemoveLongParagraph(longButton){
 function getMusic(musicButton){
     Array.from(musicButton).forEach(function(musicButton){
         musicButton.addEventListener('click', function(e){
-    //document.getElementById("shortParagraph").style.display = "none";
-    //document.getElementById("shortParagraph").style.display = "block";
-    //console.log(document.getElementById("shortParagraph").style.display = "block")
         audio.play()
     });
   });  
@@ -68,9 +88,6 @@ function getMuteMusic(){
                 musicOffButton.innerHTML = "Sound On"
                 Array.from(musicButton).forEach(function(musicButton){
                     musicButton.addEventListener('click', function(e){
-                //document.getElementById("shortParagraph").style.display = "none";
-                //document.getElementById("shortParagraph").style.display = "block";
-                //console.log(document.getElementById("shortParagraph").style.display = "block")
                     audio.play()
                 });
               }); 
@@ -81,9 +98,6 @@ function getMuteMusic(){
                 musicOffButton.innerHTML = "Sound Off"
                 Array.from(musicButton).forEach(function(musicButton){
                     musicButton.addEventListener('click', function(e){
-                //document.getElementById("shortParagraph").style.display = "none";
-                //document.getElementById("shortParagraph").style.display = "block";
-                //console.log(document.getElementById("shortParagraph").style.display = "block")
                     audio.pause()
                 });
               }); 
@@ -93,6 +107,3 @@ function getMuteMusic(){
     });
 };
 
-/* function getRandomColor(){
-    let colors =
-} */
