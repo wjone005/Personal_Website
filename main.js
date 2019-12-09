@@ -9,11 +9,12 @@ document.getElementById('longParagraph').style.display = "none";
 document.getElementById("portfolio-project").style.display = "none";
 
 
-getMusic(musicButton)
+getMusic(musicButton);
 setRemoveShortParagraph(shortButton);
 setRemoveLongParagraph(longButton);
 setRemovePortfolio(portfolioButton);
 getMuteMusic();
+IEdetection();
 
 window.setInterval(function(){
     getRandomText()
@@ -107,3 +108,19 @@ function getMuteMusic(){
     });
 };
 
+function IEdetection() {
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE ');
+    if (msie > 0) {
+        // IE 10 or older, return version number
+        alert('You are using '+'Internet Explorer ' + parseInt(ua.substring(
+          msie + 5, ua.indexOf('.', msie)), 10)+". Please use Google Chrome or FireFox for best functionality.");
+    }
+    var trident = ua.indexOf('Trident/');
+    if (trident > 0) {
+        // IE 11, return version number
+        var rv = ua.indexOf('rv:');
+        alert('You are using '+'Internet Explorer ' + parseInt(ua.substring(
+          rv + 3, ua.indexOf('.', rv)), 10)+". Please use Google Chrome or FireFox for best functionality.");
+    }
+}
