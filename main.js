@@ -6,7 +6,7 @@ let portfolioButton = document.getElementsByClassName('portfolio');
 let musicOffButton = document.getElementsByClassName('off-btn');
 let count = 0;
 document.getElementById('longParagraph').style.display = "none";
-document.getElementById("portfolio").style.display = "none";
+document.getElementById("portfolio-project").style.display = "none";
 
 
 getMusic(musicButton)
@@ -23,7 +23,7 @@ function setRemoveShortParagraph(shortButton){
     Array.from(shortButton).forEach(function(shortButton){
         shortButton.addEventListener('click', function(e){
             document.getElementById("shortParagraph").style.display = "none";
-            document.getElementById("portfolio").style.display = "none";
+            document.getElementById("portfolio-project").style.display = "none";
             document.getElementById("longParagraph").style.display = "block";
             document.getElementsByClassName('nes-container')[0].style = "block";
             document.getElementsByClassName('is-centered')[0].style.display = "block"; 
@@ -35,7 +35,7 @@ function setRemoveLongParagraph(longButton){
     Array.from(longButton).forEach(function(longButton){
         longButton.addEventListener('click', function(e){
             document.getElementById("longParagraph").style.display = "none";
-            document.getElementById("portfolio").style.display = "none";
+            document.getElementById("portfolio-project").style.display = "none";
             document.getElementById("shortParagraph").style.display = "block";
             document.getElementsByClassName('nes-container')[0].style = "block";
             document.getElementsByClassName('is-centered')[0].style.display = "block";
@@ -52,7 +52,7 @@ function setRemovePortfolio(portfolioButton){
             document.getElementsByClassName('nes-container')[0].style = "none";
             document.getElementsByClassName('with-title')[0].style = "none";
             document.getElementsByClassName('is-centered')[0].style.display = "none";
-            document.getElementById("portfolio").style.display = "block";
+            document.getElementById("portfolio-project").style.display = "block";
         })
     })
 }
